@@ -35,8 +35,23 @@ class BST{
             }
         }
     }
+    search(root, val){
+        if(root===null){
+            return false;
+        }else if(root.value===val){
+            return true;
+        }else if(root.value>val){
+            return this.search(root.left, val);
+        }else if(root.value<val){
+            return this.search(root.right, val);
+        }
+    }
 }
 
 
 const bst = new BST();
+bst.makeTree(20);
+bst.makeTree(10);
+bst.makeTree(30);
+console.log(bst.search(bst.root, 10));
 console.log(bst);
